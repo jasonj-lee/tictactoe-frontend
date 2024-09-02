@@ -12,5 +12,5 @@ export const routes: Routes = [
         path: "small-game",
         title: "Small Game",
         component: smallGameComponent
-    }
+    }, 
 ];

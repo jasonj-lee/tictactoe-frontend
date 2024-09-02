@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { smallGrid } from '../gameGrid';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { winPopupComponent } from '../winPopup/winPopup.component';
 
 @Component({
   selector: 'smallGame',
-  imports: [CommonModule], 
+  imports: [CommonModule, MatDialogModule, winPopupComponent], 
   standalone: true, 
   templateUrl: './smallGame.component.html',
   styleUrls: ['./smallGame.component.css']
@@ -19,21 +21,26 @@ export class smallGameComponent {
     turnNum:number = 0;
     errorModalOpen: boolean = false; 
     gameWon: boolean = false; 
+    constructor(private winPopup: MatDialog) {}
 
     onCellClick(index: number) {
-        if (this.game.getCellValue(index) == -1) {
+        if (this.game.isCellClickable(index)) {
+            this.game.toggleCellClickable(index, false); 
             this.game.updateCell(index, this.turnNum+1);
             if (this.game.checkWon()) this.handleWin(); 
 
             this.turnNum = (this.turnNum + 1) % 2;
-        } else {
-            this.errorModalOpen = true; 
-        }
+        } 
     }
 
     handleWin() {
-        this.gameWon = true;
+        this.winPopup.open(winPopupComponent, {
+            data: {player: this.turnNum}
+        });
+
+        for (let ind = 0; ind < 9; ++ind) {
+            this.game.toggleCellClickable(ind, false); 
+        }
         // add code for highlighting the border of the game box
-        // make it so that cells can no longer be toggled
     }
 }

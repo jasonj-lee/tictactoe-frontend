@@ -2,6 +2,7 @@ interface Cell {
     rowInd: number;
     colInd: number; 
     value: number; 
+    isClickable: boolean; 
 }
 
 export class smallGrid {
@@ -9,7 +10,6 @@ export class smallGrid {
     private colInd: number; 
     public cells: Cell[]; 
     private overallValue: number;
-    private numRows: number = 3; 
 
     public constructor(myRowInd: number, myColInd: number) {
         this.rowInd = myRowInd; 
@@ -22,7 +22,8 @@ export class smallGrid {
                 this.cells.push({
                     rowInd: i, 
                     colInd: j, 
-                    value: -1
+                    value: -1, 
+                    isClickable: true
                 }); 
             }
         }
@@ -40,8 +41,16 @@ export class smallGrid {
         return this.overallValue; 
     }
 
-    public setValue(myValue: number) {
+    public setValue(myValue: number): void {
         this.overallValue = myValue
+    }
+
+    public isCellClickable(index: number): boolean {
+        return this.cells[index].isClickable; 
+    }
+
+    public toggleCellClickable(index: number, newState: boolean): void {
+        this.cells[index].isClickable = newState;
     }
 
     public getCellValue(index: number) {
