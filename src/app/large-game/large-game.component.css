@@ -1,0 +1,15 @@
+.large-game-contain {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    margin: auto;
+    width: 33rem; 
+    height: 33rem; 
+}
+
+.large-grid-row {
+    display: flex; 
+}
+
+.large-grid-item {
+    width: 100%;
+}
