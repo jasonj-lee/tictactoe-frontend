@@ -1,6 +1,9 @@
-.grid-container {
+
+.game-contain {
     display: grid;
     grid-template-rows: repeat(3, auto);
+    margin: auto;
+    width: 3rem; 
 }
 
 .grid-row {
@@ -12,5 +15,6 @@
     padding: 20px;
     border: 1px solid #ddd;
     text-align: center;
-    width: 100px; 
+    width: 1rem; 
+    height: 1rem; 
 }
