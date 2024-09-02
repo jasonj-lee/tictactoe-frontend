@@ -6,13 +6,13 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'winPopup',
-  templateUrl: './winPopup.component.html',
-  styleUrls: ['./winPopup.component.css'],
+  selector: 'win-popup',
+  templateUrl: './win-popup.component.html',
+  styleUrls: ['./win-popup.component.css'],
   standalone: true
 })
-export class winPopupComponent {
-  readonly dialogRef = inject(MatDialogRef<winPopupComponent>);
+export class WinPopupComponent {
+  readonly dialogRef = inject(MatDialogRef<WinPopupComponent>);
   readonly data = inject<DialogData>(MAT_DIALOG_DATA);
 
   closeWin(): void {

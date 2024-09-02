@@ -1,16 +1,16 @@
 import { Routes } from '@angular/router';
-import { loadScreenComponent } from './loadScreen/loadScreen.component';
-import { smallGameComponent } from './smallGame/smallGame.component';
+import { LoadScreenComponent } from './load-screen/load-screen.component';
+import { SmallGameComponent } from './small-game/small-game.component';
 
 export const routes: Routes = [
     {
         path: "", 
         title: "Landing Page", 
-        component: loadScreenComponent
+        component: LoadScreenComponent
     }, 
     {
         path: "small-game",
         title: "Small Game",
-        component: smallGameComponent
+        component: SmallGameComponent
     }, 
 ];

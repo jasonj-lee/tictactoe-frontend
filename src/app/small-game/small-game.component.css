@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows: repeat(3, auto);
     margin: auto;
-    width: 3rem; 
+    width: 1rem; 
 }
 
 .grid-row {

@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'loadScreen',
+  selector: 'load-screen',
   imports: [RouterModule],
   standalone: true, 
-  templateUrl: './loadScreen.component.html',
-  styleUrls: ['./loadScreen.component.css']
+  templateUrl: './load-screen.component.html',
+  styleUrls: ['./load-screen.component.css']
 })
-export class loadScreenComponent {
+export class LoadScreenComponent {
 
 }

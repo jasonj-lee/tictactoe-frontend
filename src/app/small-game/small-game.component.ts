@@ -1,18 +1,18 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { smallGrid } from '../gameGrid';
+import { SmallGrid } from '../gameGrid';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { winPopupComponent } from '../winPopup/winPopup.component';
+import { WinPopupComponent } from '../win-popup/win-popup.component';
 
 @Component({
-  selector: 'smallGame',
-  imports: [CommonModule, MatDialogModule, winPopupComponent], 
+  selector: 'small-game',
+  imports: [CommonModule, MatDialogModule, WinPopupComponent], 
   standalone: true, 
-  templateUrl: './smallGame.component.html',
-  styleUrls: ['./smallGame.component.css']
+  templateUrl: './small-game.component.html',
+  styleUrls: ['./small-game.component.css']
 })
-export class smallGameComponent {
-    game: smallGrid = new smallGrid(0, 0); 
+export class SmallGameComponent {
+    game: SmallGrid = new SmallGrid(0, 0); 
     cellInds =  [
         [0, 1, 2], 
         [3, 4, 5], 
@@ -34,7 +34,7 @@ export class smallGameComponent {
     }
 
     handleWin() {
-        this.winPopup.open(winPopupComponent, {
+        this.winPopup.open(WinPopupComponent, {
             data: {player: this.turnNum}
         });
 

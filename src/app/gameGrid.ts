@@ -5,7 +5,7 @@ interface Cell {
     isClickable: boolean; 
 }
 
-export class smallGrid {
+export class SmallGrid {
     private rowInd: number;
     private colInd: number; 
     public cells: Cell[]; 
