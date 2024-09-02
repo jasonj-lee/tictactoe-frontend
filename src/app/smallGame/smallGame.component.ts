@@ -16,12 +16,24 @@ export class smallGameComponent {
         [3, 4, 5], 
         [6, 7, 8]
     ]; 
-    turnNum = 0
+    turnNum:number = 0;
+    errorModalOpen: boolean = false; 
+    gameWon: boolean = false; 
 
     onCellClick(index: number) {
-        console.log(index); 
-        console.log("hi");
-        this.game.updateCell(index, this.turnNum+1);
-        this.turnNum = (this.turnNum + 1) % 2;
+        if (this.game.getCellValue(index) == -1) {
+            this.game.updateCell(index, this.turnNum+1);
+            if (this.game.checkWon()) this.handleWin(); 
+
+            this.turnNum = (this.turnNum + 1) % 2;
+        } else {
+            this.errorModalOpen = true; 
+        }
+    }
+
+    handleWin() {
+        this.gameWon = true;
+        // add code for highlighting the border of the game box
+        // make it so that cells can no longer be toggled
     }
 }

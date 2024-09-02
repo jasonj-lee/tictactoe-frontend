@@ -66,7 +66,7 @@ export class smallGrid {
     public checkWon(): boolean {
         // check rows 
         for (let rowVal = 0; rowVal < 9; rowVal += 3) {
-            if (this.getCellValue(rowVal) === this.getCellValue(rowVal+1) && this.getCellValue(rowVal) === this.getCellValue(rowVal+2)) {
+            if (this.getCellValue(rowVal) != -1 && this.getCellValue(rowVal) === this.getCellValue(rowVal+1) && this.getCellValue(rowVal) === this.getCellValue(rowVal+2)) {
                 this.setValue(this.getCellValue(rowVal))
                 return true;  
             }
@@ -74,20 +74,20 @@ export class smallGrid {
 
         // check columns 
         for (let colVal = 0; colVal < 3; ++colVal) {
-            if (this.getCellValue(colVal) === this.getCellValue(colVal+3) && this.getCellValue(colVal) === this.getCellValue(colVal+6)) {
+            if (this.getCellValue(colVal) != -1 && this.getCellValue(colVal) === this.getCellValue(colVal+3) && this.getCellValue(colVal) === this.getCellValue(colVal+6)) {
                 this.setValue(this.getCellValue(colVal)); 
                 return true; 
             }
         }
 
         // check diagonal (Upper Left -> Lower Right)
-        if (this.getCellValue(0) === this.getCellValue(4) && this.getCellValue(0) === this.getCellValue(8)) {
+        if (this.getCellValue(0) != -1 && this.getCellValue(0) === this.getCellValue(4) && this.getCellValue(0) === this.getCellValue(8)) {
             this.setValue(this.getCellValue(0));
             return true; 
         }
 
         // check diagonal (Lower Left -> Upper Right)
-        if (this.getCellValue(2) === this.getCellValue(4) && this.getCellValue(2) === this.getCellValue(6)) {
+        if (this.getCellValue(2) != -1 && this.getCellValue(2) === this.getCellValue(4) && this.getCellValue(2) === this.getCellValue(6)) {
             this.setValue(this.getCellValue(2)); 
             return true; 
         }
