@@ -10,6 +10,22 @@
     display: flex; 
 }
 
-.large-grid-item {
-    width: 100%;
+.game-contain {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    margin: auto;
+    width: 1rem; 
+}
+
+.grid-row {
+    display: flex; 
+}
+  
+.grid-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 1rem; 
+    height: 1rem; 
 }

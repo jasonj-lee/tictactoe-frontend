@@ -1,7 +1,13 @@
 <div class="large-game-contain">
-    <div *ngFor="let row of gameInds" class="large-grid-row">
-        <div *ngFor="let ind of row" class="large-grid-item">
-            <small-game></small-game>
+    <div *ngFor="let row of grid[0].getCellInds()" class="large-grid-row">
+        <div *ngFor="let gameInd of row" class="large-grid-item game-contain">
+            <div *ngFor="let smallRow of grid[gameInd].getCellInds()" class="grid-row">
+                <div *ngFor="let cellInd of smallRow" class="grid-item" (click)="handleTurn(cellInd, gameInd)">
+                    {{
+                        grid[gameInd].displayCellValue(cellInd)    
+                    }}
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -6,14 +6,10 @@ interface Cell {
 }
 
 export class SmallGrid {
-    private rowInd: number;
-    private colInd: number; 
-    public cells: Cell[]; 
+    private cells: Cell[]; 
     private overallValue: number;
 
-    public constructor(myRowInd: number, myColInd: number) {
-        this.rowInd = myRowInd; 
-        this.colInd = myColInd;
+    public constructor() {
         this.overallValue = -1; 
 
         this.cells = []
@@ -28,13 +24,13 @@ export class SmallGrid {
             }
         }
     }
-    
-    public getRowInd(): number {
-        return this.rowInd; 
-    }
 
-    public getColInd(): number {
-        return this.colInd; 
+    public getCellInds(): number[][] {
+        return [
+            [0, 1, 2], 
+            [3, 4, 5], 
+            [6, 7, 8]
+        ]
     }
 
     public getValue(): number {

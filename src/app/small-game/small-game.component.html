@@ -1,8 +1,8 @@
 <div class="game-contain">
-    <div *ngFor="let row of cellInds" class="grid-row">
-        <div *ngFor="let ind of row" class="grid-item" (click)="onCellClick(ind)">
+    <div *ngFor="let row of grid.getCellInds()" class="grid-row">
+        <div *ngFor="let ind of row" class="grid-item" (click)="handleTurn(ind)">
             {{
-                game.displayCellValue(ind)    
+                grid.displayCellValue(ind)    
             }}
         </div>
     </div>
