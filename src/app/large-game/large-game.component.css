@@ -14,7 +14,19 @@
     display: grid;
     grid-template-rows: repeat(3, auto);
     margin: auto;
-    width: 1rem; 
+    width: 11rem; 
+}
+
+.tie {
+    border: none; 
+}
+
+.win-p0 {
+    border: 0.5rem solid green; 
+}
+
+.win-p1 {
+    border: 0.5rem solid red; 
 }
 
 .grid-row {

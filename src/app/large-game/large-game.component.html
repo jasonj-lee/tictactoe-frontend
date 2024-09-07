@@ -1,6 +1,6 @@
-<div class="large-game-contain">
+<div class="large-game-contain" [ngClass]="{'tie': winStatus == -1, 'win-p0': winStatus == 0, 'win-p1': winStatus == 1}">
     <div *ngFor="let row of grid[0].getCellInds()" class="large-grid-row">
-        <div *ngFor="let gameInd of row" class="large-grid-item game-contain">
+        <div *ngFor="let gameInd of row" class="large-grid-item game-contain" [ngClass]="{'tie': grid[gameInd].getValue() == -1, 'win-p0': grid[gameInd].getValue() == 0, 'win-p1': grid[gameInd].getValue() == 1}">
             <div *ngFor="let smallRow of grid[gameInd].getCellInds()" class="grid-row">
                 <div *ngFor="let cellInd of smallRow" class="grid-item" (click)="handleTurn(cellInd, gameInd)">
                     {{

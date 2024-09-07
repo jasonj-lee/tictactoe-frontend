@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { SmallGameComponent } from '../small-game/small-game.component';
 import { SmallGrid } from '../gameGrid';
 import { BaseGamePage } from '../abstract-game-page';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { WinPopupComponent } from '../win-popup/win-popup.component';
 
 @Component({
   selector: 'large-game',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatDialogModule],
   templateUrl: './large-game.component.html',
   styleUrl: './large-game.component.css',
 })
@@ -15,19 +16,21 @@ export class LargeGameComponent implements BaseGamePage {
   grid: SmallGrid[];
   turnNum: number; 
   currGameInd: number; 
+  winStatus: number; 
   private gameInds: number[][] = [
     [0, 1, 2], 
     [3, 4, 5], 
     [6, 7, 8]
   ]; 
 
-  constructor() {
+  constructor(private winPopup: MatDialog) {
     this.grid = []; 
     for (let i = 0; i < 9; ++i) {
       this.grid.push(new SmallGrid()); 
     }
     this.turnNum = 0; 
     this.currGameInd = -1; 
+    this.winStatus = -1; 
   }
 
   checkClickable(cellInd: number, gridInd: number): boolean {
@@ -75,8 +78,11 @@ export class LargeGameComponent implements BaseGamePage {
   }
 
   handleWin(): void {
-      // add code to change border 
-      // open winner popup    
+      this.winStatus = this.turnNum; 
+      this.winPopup.open(WinPopupComponent, {
+        data: {player: this.turnNum + 1}
+    });
+
       for (let gameInd = 0; gameInd < 9; ++gameInd) {
           for (let cellInd = 0; cellInd < 9; ++cellInd) {
               this.grid[gameInd].toggleCellClickable(cellInd, false); 

@@ -1,4 +1,4 @@
-<div class="game-contain">
+<div class="game-contain" [ngClass]="{'tie': winStatus == -1, 'win-p0': winStatus == 0, 'win-p1': winStatus == 1}">
     <div *ngFor="let row of grid.getCellInds()" class="grid-row">
         <div *ngFor="let ind of row" class="grid-item" (click)="handleTurn(ind)">
             {{
