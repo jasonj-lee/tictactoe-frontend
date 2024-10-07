@@ -7,7 +7,7 @@
 }
 
 .tie {
-    border: none; 
+    border: 0.5rem solid transparent; 
 }
 
 .win-p0 {
@@ -29,4 +29,8 @@
     text-align: center;
     width: 1rem; 
     height: 1rem; 
+}
+
+.cell-clickable {
+    cursor: pointer; 
 }

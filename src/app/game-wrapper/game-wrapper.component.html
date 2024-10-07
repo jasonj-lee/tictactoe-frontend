@@ -1,0 +1,11 @@
+<div>
+    <div class="player-desc">Player 1: x</div>
+    <div class="player-desc">Player 2: o</div>
+
+    <ng-container *ngIf="isLargeGame; else smallGame">
+        <large-game></large-game>
+    </ng-container>
+    <ng-template #smallGame>
+        <small-game></small-game>
+    </ng-template>
+</div>

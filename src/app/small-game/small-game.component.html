@@ -1,6 +1,6 @@
 <div class="game-contain" [ngClass]="{'tie': winStatus == -1, 'win-p0': winStatus == 0, 'win-p1': winStatus == 1}">
     <div *ngFor="let row of grid.getCellInds()" class="grid-row">
-        <div *ngFor="let ind of row" class="grid-item" (click)="handleTurn(ind)">
+        <div *ngFor="let ind of row" class="grid-item" [ngClass]="{'cell-clickable': checkClickable(ind)}" (click)="handleTurn(ind)">
             {{
                 grid.displayCellValue(ind)    
             }}

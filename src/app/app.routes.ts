@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoadScreenComponent } from './load-screen/load-screen.component';
-import { SmallGameComponent } from './small-game/small-game.component';
-import { LargeGameComponent } from './large-game/large-game.component';
+import { GameWrapperComponent } from './game-wrapper/game-wrapper.component';
 
 export const routes: Routes = [
     {
@@ -10,13 +9,8 @@ export const routes: Routes = [
         component: LoadScreenComponent
     }, 
     {
-        path: "small-game",
-        title: "Small Game",
-        component: SmallGameComponent
-    }, 
-    {
-        path: "large-game", 
-        title: "Large Game", 
-        component: LargeGameComponent
+        path: "play-game",
+        title: "Play Tic-Tac-Toe",
+        component: GameWrapperComponent
     }
 ];
