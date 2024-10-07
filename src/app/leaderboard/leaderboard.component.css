@@ -24,6 +24,6 @@
     display: flex;
 }
 
-td {
+th, td {
     padding: 0 5rem; 
 }
