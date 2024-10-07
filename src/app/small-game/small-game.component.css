@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows: repeat(3, auto);
     margin: auto;
-    width: 11rem; 
+    width: fit-content; 
 }
 
 .tie {
