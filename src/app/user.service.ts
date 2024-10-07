@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',  // Automatically makes this service available globally
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3001/users';
+  private apiUrl = 'http://localhost:3001/user';
 
   constructor(private http: HttpClient) {}
 
