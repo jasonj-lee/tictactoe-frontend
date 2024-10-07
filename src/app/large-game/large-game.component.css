@@ -13,20 +13,23 @@
 .game-contain {
     display: grid;
     grid-template-rows: repeat(3, auto);
-    margin: auto;
-    width: 11rem; 
+    margin: 0.1rem; 
 }
 
 .tie {
-    border: none; 
+    border: 0.25rem solid transparent; 
 }
 
 .win-p0 {
-    border: 0.5rem solid green; 
+    border: 0.25rem solid blue; 
 }
 
 .win-p1 {
-    border: 0.5rem solid red; 
+    border: 0.25rem solid red; 
+}
+
+.in-play {
+    border: 0.25rem solid #90EE90; 
 }
 
 .grid-row {
@@ -40,4 +43,8 @@
     text-align: center;
     width: 1rem; 
     height: 1rem; 
+}
+
+.cell-clickable {
+    cursor: pointer; 
 }

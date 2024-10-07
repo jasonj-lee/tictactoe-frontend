@@ -38,13 +38,25 @@ export class LargeGameComponent implements BaseGamePage {
     return this.grid[gridInd].isCellClickable(cellInd); 
   }
 
+  checkGridFull(gridInd: number): boolean {
+    for (let cellInd = 0; cellInd < 9; ++cellInd) {
+      if (this.checkClickable(cellInd, gridInd)) return false; 
+    } 
+    return true; 
+  }
+
   handleTurn(cellInd: number, gridInd: number): void {
     if (this.checkClickable(cellInd, gridInd)) {
       this.grid[gridInd].toggleCellClickable(cellInd, false); 
       this.grid[gridInd].updateCell(cellInd, this.turnNum+1); 
       if (this.grid[gridInd].checkWon() && this.checkWin()) this.handleWin(); 
 
+      // check whether next grid has valid spaces to play on
       this.currGameInd = cellInd; 
+      
+      // if next grid has valid spaces, then make that grid the only playable grid
+      // otherwise, allow play on all (non-empty) grids 
+      this.currGameInd = !this.checkGridFull(cellInd) ? cellInd : -1;
       this.turnNum = (this.turnNum + 1) % 2; 
     }
   }
