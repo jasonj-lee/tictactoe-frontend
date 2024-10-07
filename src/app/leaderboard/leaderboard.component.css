@@ -7,5 +7,23 @@
 }
 
 .leaderboard-table {
-    
+    width: fit-content;
+    margin: auto; 
+}
+
+.leaderboard-header {
+    background-color: lightgray;  
+    display: flex; 
+    font-weight: bold; 
+    text-align: center; 
+    width: fit-content; 
+    border: .1rem solid black;
+}
+
+.leaderboard-row {
+    display: flex;
+}
+
+td {
+    padding: 0 5rem; 
 }

@@ -1,18 +1,18 @@
 <div>
     <p class="leaderboard-title">Leaderboard</p>
 
-    <div class="leaderboard-table">
-        <div class="leaderboard-header">
-            <div>Username</div>
-            <div>Win Count</div>
-            <div>Games Played</div>
-            <div>Win Rate</div>
-        </div>
-        <div *ngFor="let user of users" class="leaderboard-row">
-            <div>{{user.name}}</div>
-            <div>{{user.wins}}</div>
-            <div>{{user.gamesPlayed}}</div>
-            <div>{{user.wins / user.gamesPlayed}}</div>
-        </div>
-    </div>
+    <table class="leaderboard-table">
+        <tr class="leaderboard-header">
+            <td>Username</td>
+            <td>Win Count</td>
+            <td>Games Played</td>
+            <td>Win Rate</td>
+        </tr>
+        <tr *ngFor="let user of users" class="leaderboard-row">
+            <td>{{user.name}}</td>
+            <td>{{user.wins}}</td>
+            <td>{{user.gamesPlayed}}</td>
+            <td>{{user.wins / user.gamesPlayed}}</td>
+        </tr>
+    </table>
 </div>
