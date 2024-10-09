@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <p>Player 1 time: </p>
+        <p>{{(p1Time - (p1Time % 60)) / 60}}:{{p1Time % 60}}</p>
+    </div>
+    <div>
+        <p>Player 2 time: </p>
+        <p>{{(p2Time - (p2Time % 60)) / 60}}:{{p2Time % 60}}</p>
+    </div>
+
+
+    <div class="game-contain" [ngClass]="{'tie': winStatus == -1, 'win-p0': winStatus == 0, 'win-p1': winStatus == 1}">
+        <div *ngFor="let row of grid.getCellInds()" class="grid-row">
+            <div *ngFor="let ind of row" class="grid-item" [ngClass]="{'cell-clickable': checkClickable(ind)}" (click)="handleTurn(ind)">
+                {{
+                    grid.displayCellValue(ind)    
+                }}
+            </div>
+        </div>
+    </div>
+</div>
