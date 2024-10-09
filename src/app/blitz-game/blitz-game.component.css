@@ -1,0 +1,17 @@
+.timers {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.p1Time {
+    display: flex; 
+    justify-content:
+}
+
+.p2Time { 
+    display: flex; 
+}
+
+.p1Time p:first-of-type, .p2Time p:first-of-type {
+    margin-right: 1rem; 
+}
