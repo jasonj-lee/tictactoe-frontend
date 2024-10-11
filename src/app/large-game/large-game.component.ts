@@ -17,11 +17,6 @@ export class LargeGameComponent implements BaseGamePage {
   turnNum: number; 
   currGameInd: number; 
   winStatus: number; 
-  private gameInds: number[][] = [
-    [0, 1, 2], 
-    [3, 4, 5], 
-    [6, 7, 8]
-  ]; 
 
   constructor(private winPopup: MatDialog) {
     this.grid = []; 
