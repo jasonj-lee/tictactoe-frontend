@@ -2,10 +2,20 @@
     <div class="player-desc">Player 1: x</div>
     <div class="player-desc">Player 2: o</div>
 
-    <ng-container *ngIf="isLargeGame; else smallGame">
-        <large-game></large-game>
+    <ng-container *ngIf="isBlitz; else untimed">
+        <ng-container *ngIf="isLargeGame; else smallTimedGame">
+            <blitz-large></blitz-large>
+        </ng-container>
+        <ng-template #smallTimedGame>
+            <blitz-small></blitz-small>
+        </ng-template>
     </ng-container>
-    <ng-template #smallGame>
-        <small-game></small-game>
+    <ng-template #untimed>
+        <ng-container *ngIf="isLargeGame; else smallUntimedGame">
+            <large-game></large-game>
+        </ng-container>
+        <ng-template #smallUntimedGame>
+            <small-game></small-game>
+        </ng-template>
     </ng-template>
 </div>

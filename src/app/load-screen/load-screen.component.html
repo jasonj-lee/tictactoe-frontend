@@ -1,16 +1,25 @@
 <h1>Welcome to Tic-Tac-Toe</h1>
 
 <div>
-    <a routerLink="play-game" [state]="{ isLargeGame: false}">Play small game (3x3)</a>
+    <a routerLink="play-game" [state]="{ isLargeGame: false, isBlitz: false}">Play small game (3x3)</a>
 </div>
 
 <div>
-    <a routerLink="play-game" [state]="{ isLargeGame: true}">Play large game (3x(3x3))</a>
+    <a routerLink="play-game" [state]="{ isLargeGame: true, isBlitz: false}">Play large game (3x(3x3))</a>
 </div>
 
 <div>
-    <a routerLink="play-blitz">Play Blitz small (3x3)</a>
+    <a routerLink="play-game" [state]="{ isLargeGame: false, isBlitz: true}">Play Blitz small (3x3)</a>
 </div>
+
+<div>
+    <a routerLink="play-game" [state]="{ isLargeGame: true, isBlitz: true}">Play Blitz large (3x(3x3))</a>
+</div>
+
+<div>
+    <a routerLink="play-singleplayer">Singleplayer Mode</a>
+</div>
+
 
 <leaderboard></leaderboard>
 

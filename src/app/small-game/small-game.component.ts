@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SmallGrid } from '../gameGrid';
-import { BaseGamePage } from '../abstract-game-page';
+import { SmallGrid } from '../inherited/gameGrid';
+import { BaseGamePage } from '../inherited/abstract-game-page';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { WinPopupComponent } from '../win-popup/win-popup.component';
 

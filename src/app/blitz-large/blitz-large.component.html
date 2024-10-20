@@ -1,0 +1,27 @@
+<div>
+    <div class="timers">
+        <div class="p1Time">
+            <p>Player 1 time: </p>
+            <p>{{(p1Time - (p1Time % 60)) / 60}}:{{(p1Time % 60).toString().padStart(2, '0')}}</p>
+        </div>
+        <div class="p2Time">
+            <p>Player 2 time: </p>
+            <p>{{(p2Time - (p2Time % 60)) / 60}}:{{(p2Time % 60).toString().padStart(2, '0')}}</p>
+        </div>
+    </div>
+
+    <div class="large-game-contain" [ngClass]="{'tie': winStatus == -1, 'win-p0': winStatus == 1, 'win-p1': winStatus == 2}">
+        <div *ngFor="let row of grid[0].getCellInds()" class="large-grid-row">
+            <div *ngFor="let gameInd of row" class="large-grid-item game-contain" [ngClass]="{'tie': grid[gameInd].getValue() == -1, 'win-p0': grid[gameInd].getValue() == 1, 'win-p1': grid[gameInd].getValue() == 2, 'in-play': (currGameInd == -1 && !checkGridFull(gameInd)) || currGameInd == gameInd}">
+                <div *ngFor="let smallRow of grid[gameInd].getCellInds()" class="grid-row">
+                    <div *ngFor="let cellInd of smallRow" class="grid-item" [ngClass]="{'cell-clickable': checkClickable(cellInd, gameInd)}" (click)="handleTurn(cellInd, gameInd)">
+                        {{
+                            grid[gameInd].displayCellValue(cellInd)    
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
